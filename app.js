@@ -1,20 +1,36 @@
-//string
+let num1 = 30;
+let num2 = 45;
 
-let firstName="Mark"
-let lastName="David"
-let fullName = firstName+" "+lastName;
-console.log(fullName);
+if(num1 == num2){
+    console.log("the two numbers are equal.");
+}
+else{
+    if(num1>num2) console.log("num1 is greater than num2");
+    else console.log("the second number is greater");
+}
 
-//numbers
+let dayOfTheWeek = 15;
 
-let num1=10; 
-let num2=5;
-let sum1= num1+num2;
-console.log(sum1);
-
-//Boolean 
-
-let result = 50;
-console.log(result==50);
-console.log(result==30);
-
+switch(dayOfTheWeek){
+    case 1:
+        console.log("It's Monday")
+        break;
+    case 2:
+        console.log("It's Tuesday")
+        break;
+    case 3:
+        console.log("It's Wednesday")
+        break;
+    case 4: 
+        console.log("It's Thursday")
+        break;
+    case 5:
+        console.log("It's Friday")
+        break;
+    case 6:
+    case 7:
+        console.log("It's the weekend!")
+        break;
+    default:
+        console.log("That's not a day of the week.")
+}
