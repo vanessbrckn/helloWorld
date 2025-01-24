@@ -1,36 +1,33 @@
-let num1 = 30;
-let num2 = 45;
+// for loop
+// for ( let i = 1; i <= 100; i +=2){
+//     console.log(i);
+// }
 
-if(num1 == num2){
-    console.log("the two numbers are equal.");
-}
-else{
-    if(num1>num2) console.log("num1 is greater than num2");
-    else console.log("the second number is greater");
+//while loop
+// let count = 0;
+// while (count<10){
+//     console.log(count);
+//     count++;
+// }
+
+//do/while loop
+// let count = 0;
+// do{
+//     count++;
+//     console.log("count is "+count);
+// }while(count < 10);
+
+//Arrays
+let groceries = ["Milk","Eggs","Honey","Bread"];
+
+for(food in groceries){
+    console.log(groceries[food]);
 }
 
-let dayOfTheWeek = 15;
+let friends = new Array();
 
-switch(dayOfTheWeek){
-    case 1:
-        console.log("It's Monday")
-        break;
-    case 2:
-        console.log("It's Tuesday")
-        break;
-    case 3:
-        console.log("It's Wednesday")
-        break;
-    case 4: 
-        console.log("It's Thursday")
-        break;
-    case 5:
-        console.log("It's Friday")
-        break;
-    case 6:
-    case 7:
-        console.log("It's the weekend!")
-        break;
-    default:
-        console.log("That's not a day of the week.")
+friends.push("Elisabeth", "Rilez","Willow","Ezra");
+for(friend in friends){
+    console.log(friends[friend]);
 }
+// this course is way too beginner for me :P
