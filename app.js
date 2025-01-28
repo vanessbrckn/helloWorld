@@ -1,33 +1,97 @@
-// for loop
-// for ( let i = 1; i <= 100; i +=2){
-//     console.log(i);
-// }
+// Objects!
 
-//while loop
-// let count = 0;
-// while (count<10){
-//     console.log(count);
-//     count++;
-// }
+let user = {
+    name: "Martha",
+    age: 30
+};
 
-//do/while loop
-// let count = 0;
-// do{
-//     count++;
-//     console.log("count is "+count);
-// }while(count < 10);
+// // adding property to object.
+// user.isAdmin = true;
+// console.log(user.isAdmin)
 
-//Arrays
-let groceries = ["Milk","Eggs","Honey","Bread"];
+// //this prints all three properties now.
+// console.log(user)
 
-for(food in groceries){
-    console.log(groceries[food]);
+// delete user.age;
+
+// // now the age property is no longer part of this object
+// console.log(user)
+
+let newUser = {
+    name: "Alice",
+    age: 30,
+    //you can do this
+    "likes birds": true
 }
 
-let friends = new Array();
+//but not this
+//console.log(user."likes birds")
 
-friends.push("Elisabeth", "Rilez","Willow","Ezra");
-for(friend in friends){
-    console.log(friends[friend]);
+//but you can do this.
+console.log(newUser["likes birds"])
+
+delete newUser["likes birds"];
+
+console.log(newUser)
+
+//-------------For In Loop------------
+
+for (let key in user){
+   // console.log(key) //prints the properties
+   // console.log(user[key]) // prints the values.
+    console.log(key + " : " + user[key] )
 }
-// this course is way too beginner for me :P
+
+//----- const object
+const user2 = {
+    name: "Will",
+    sizes: {    //object in an object
+        height: 185,
+        width: 150
+    },
+    // sayHi: function(){ // funtion in an object
+    //     console.log("hello there")
+    // }
+    sayHi(){
+        console.log("hello there") //cleaner code
+    },
+    sayName(){
+        console.log(this.name); //print name can also do user.name
+    }
+}
+
+console.log(user2.sizes.height)
+user2.sayHi(); //console print in function
+
+//----------this
+
+user2.sayName();
+
+//--------------- challenge
+
+let customer = {
+    first_name: "Elizabeth",
+    last_name: "Carpenter",
+    phone: "555-555-5555"
+}
+
+for (key in customer){
+    console.log(key+" : "+customer[key])
+}
+console.log(customer);
+
+// not in lesson: array of objects >:)
+
+const customers = [
+    {name: "Jill", age: 30, active: true},
+    {name: "Martha", age:50, active: false},
+    {name: "August", age: 29, active: true}
+];
+
+customers.forEach(customer => {
+    console.log(`${customer.name} is ${customer.age} years old, and `);
+    if(customer.active) console.log("is active");
+    else console.log("is not active");
+  });
+  
+
