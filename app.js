@@ -1,61 +1,38 @@
-// demo 
+// React JS
+let now = new Date();
 
-let sum = (a, b) => a + b;
+console.log(now); 
 
-console.log(sum(1,2));
+// time functions
 
-let sayHi = () => console.log("Hello");
-sayHi()
+let updateInterval = setInterval(checkForUpdates, 6000);
 
-//more complex
+// function inputs treated as an array
 
-let sum2 = (a,b) => {
-    let result = a+b;
-    console.log(result);
+function sayHi(name,message){
+    console.log(
+        `Hello ${name}, ${message}`
+    );
 }
 
-sum2(2,3) // 5
-
-//Spread Operator
-function addFour(a, b, c, d){
-    return a+b+c+d;
+// above is same as this: 
+function sayHi2 () {
+    console.log(`Hello ${arguments[0]}, ${arguments[1]}`)
 }
 
-let numbers = [1,2,3,4];
+// Events are user driven
+let okay = document.querySelector('#confirmUpdateDialog');
 
-console.log(addFour(...numbers)); //10
+ // Promises simplify ASynch programmming. An object that represents
+ // the result of an asynch computation. No way to synchronously get
+ // the value of a promise. Can be benificial when there are nested
+ // call backs. 
 
-let arr1 = [1,2,3,4];
+ getJSON(url).then(jsonData => {
+    //function that will be asynchronously invoked
+    // with the parsed JSON value when it becomes available.
+ });
 
-let plus5 = arr1.map( val => val+5);
-console.log(plus5);
-
-// above same as: 
-// let plus5 = arr1.map( val => {
-//  return val+5 
-//})
-
-//Filter 
-
-let even = arr1.filter( val => {
-    return val%2 == 0;
-})
-console.log(even); // [2,4]
-
-// forEach()
-
-let animals = ["cat", "dog", "fish"];
-animals.forEach(animal => console.log(animal));
-
-// Template Literals
-
-const person = "Justin"
-const str1 = `hello, ${person}`
-console.log(str1);
-
-let personObj = {
-    fn: "Vanessa",
-    ln: "Bracken"
-};
-const str2 = `hello, ${personObj.fn} ${personObj.ln}`
-console.log(str2);
+ // in this example, if the url being passed to getJSON gives a valid response
+ // then displayUserProfile will run, otherwise handleProfileError does.
+ getJSON("/api/user/profile").then(displayUserProfile, handleProfileError);
