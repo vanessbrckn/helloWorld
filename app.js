@@ -1,97 +1,54 @@
-// Objects!
+// Functions and Iterations (ES6)
 
-let user = {
-    name: "Martha",
-    age: 30
-};
+doubleNum = (x) => x * 2;
 
-// // adding property to object.
-// user.isAdmin = true;
-// console.log(user.isAdmin)
+num = 10;
 
-// //this prints all three properties now.
-// console.log(user)
+console.log("doubleNum = " +doubleNum(num));
 
-// delete user.age;
+//spread operator creates a copy instead of a reference
 
-// // now the age property is no longer part of this object
-// console.log(user)
+const listC = [1,2,3];
+const listD = [...listC]; //spread
+listD.push(4);
 
-let newUser = {
-    name: "Alice",
-    age: 30,
-    //you can do this
-    "likes birds": true
-}
+console.log("spread example : "+listD);
 
-//but not this
-//console.log(user."likes birds")
+//merging with a spread operator
+ const mergedList = [...listC, ...listD];
 
-//but you can do this.
-console.log(newUser["likes birds"])
+ console.log("merge using spread: "+ mergedList);
 
-delete newUser["likes birds"];
+ //merging objects 
+ const obj1 = {a : 1, b : 2};
+ const obj2 = { c : 3};
 
-console.log(newUser)
+ const mergedObj = {...obj1, ...obj2};
 
-//-------------For In Loop------------
+ console.log("merged object: ", mergedObj); // just learned you can print an object 
+ // by not joining it to the existing string. I must've forgotten about that.
 
-for (let key in user){
-   // console.log(key) //prints the properties
-   // console.log(user[key]) // prints the values.
-    console.log(key + " : " + user[key] )
-}
+ //every and some
+let numbers = [1,2,3,4,5,4,3,2,1];
+let everyResult = numbers.every((item, index,array) => item > 2);
+console.log(everyResult); // false
 
-//----- const object
-const user2 = {
-    name: "Will",
-    sizes: {    //object in an object
-        height: 185,
-        width: 150
-    },
-    // sayHi: function(){ // funtion in an object
-    //     console.log("hello there")
-    // }
-    sayHi(){
-        console.log("hello there") //cleaner code
-    },
-    sayName(){
-        console.log(this.name); //print name can also do user.name
-    }
-}
+let someResult = numbers.some((item, index, array) => item > 2);
+console.log(someResult); // true
 
-console.log(user2.sizes.height)
-user2.sayHi(); //console print in function
+//filter - uses the function to decide what array items to return
 
-//----------this
+let filterResult  = numbers.filter(item => item > 2); // don't technically need the unused parameters
+console.log(filterResult) // [3,4,5,4,3]
 
-user2.sayName();
+//map - returns an array that has been manipulated by map
+let mapResult = numbers.map(item => item * 2);
+console.log(mapResult) // [2, 4,6,8,10, 8, 6, 4, 2]
 
-//--------------- challenge
-
-let customer = {
-    first_name: "Elizabeth",
-    last_name: "Carpenter",
-    phone: "555-555-5555"
-}
-
-for (key in customer){
-    console.log(key+" : "+customer[key])
-}
-console.log(customer);
-
-// not in lesson: array of objects >:)
-
-const customers = [
-    {name: "Jill", age: 30, active: true},
-    {name: "Martha", age:50, active: false},
-    {name: "August", age: 29, active: true}
-];
-
-customers.forEach(customer => {
-    console.log(`${customer.name} is ${customer.age} years old, and `);
-    if(customer.active) console.log("is active");
-    else console.log("is not active");
-  });
-  
-
+//forEach - does not have return, runs function on each item.
+numbers.forEach(item => {
+    item = item+5;
+    console.log(item); // 6 /n 7 /n, ect
+    //do something here
+})
+console.log(numbers); //[1, 2, 3, 4, 5, 4, 3, 2, 1]
