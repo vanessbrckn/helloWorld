@@ -1,54 +1,61 @@
-// Functions and Iterations (ES6)
+// demo 
 
-doubleNum = (x) => x * 2;
+let sum = (a, b) => a + b;
 
-num = 10;
+console.log(sum(1,2));
 
-console.log("doubleNum = " +doubleNum(num));
+let sayHi = () => console.log("Hello");
+sayHi()
 
-//spread operator creates a copy instead of a reference
+//more complex
 
-const listC = [1,2,3];
-const listD = [...listC]; //spread
-listD.push(4);
+let sum2 = (a,b) => {
+    let result = a+b;
+    console.log(result);
+}
 
-console.log("spread example : "+listD);
+sum2(2,3) // 5
 
-//merging with a spread operator
- const mergedList = [...listC, ...listD];
+//Spread Operator
+function addFour(a, b, c, d){
+    return a+b+c+d;
+}
 
- console.log("merge using spread: "+ mergedList);
+let numbers = [1,2,3,4];
 
- //merging objects 
- const obj1 = {a : 1, b : 2};
- const obj2 = { c : 3};
+console.log(addFour(...numbers)); //10
 
- const mergedObj = {...obj1, ...obj2};
+let arr1 = [1,2,3,4];
 
- console.log("merged object: ", mergedObj); // just learned you can print an object 
- // by not joining it to the existing string. I must've forgotten about that.
+let plus5 = arr1.map( val => val+5);
+console.log(plus5);
 
- //every and some
-let numbers = [1,2,3,4,5,4,3,2,1];
-let everyResult = numbers.every((item, index,array) => item > 2);
-console.log(everyResult); // false
+// above same as: 
+// let plus5 = arr1.map( val => {
+//  return val+5 
+//})
 
-let someResult = numbers.some((item, index, array) => item > 2);
-console.log(someResult); // true
+//Filter 
 
-//filter - uses the function to decide what array items to return
-
-let filterResult  = numbers.filter(item => item > 2); // don't technically need the unused parameters
-console.log(filterResult) // [3,4,5,4,3]
-
-//map - returns an array that has been manipulated by map
-let mapResult = numbers.map(item => item * 2);
-console.log(mapResult) // [2, 4,6,8,10, 8, 6, 4, 2]
-
-//forEach - does not have return, runs function on each item.
-numbers.forEach(item => {
-    item = item+5;
-    console.log(item); // 6 /n 7 /n, ect
-    //do something here
+let even = arr1.filter( val => {
+    return val%2 == 0;
 })
-console.log(numbers); //[1, 2, 3, 4, 5, 4, 3, 2, 1]
+console.log(even); // [2,4]
+
+// forEach()
+
+let animals = ["cat", "dog", "fish"];
+animals.forEach(animal => console.log(animal));
+
+// Template Literals
+
+const person = "Justin"
+const str1 = `hello, ${person}`
+console.log(str1);
+
+let personObj = {
+    fn: "Vanessa",
+    ln: "Bracken"
+};
+const str2 = `hello, ${personObj.fn} ${personObj.ln}`
+console.log(str2);
